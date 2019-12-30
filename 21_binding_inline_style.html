@@ -1,0 +1,23 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="classbinding">
+           <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px'}">{{title}}</div>
+       </div>
+
+      <script type = "text/javascript">
+        var vm = new Vue({
+            el: '#classbinding',
+            data: {
+               title: "Inline style Binding",
+               activeColor: 'red',
+               fontSize: '30'
+            }
+        });
+      </script>
+   </body>
+</html>

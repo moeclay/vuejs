@@ -1,0 +1,27 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="databinding">
+           {{ title }} <br>
+           <a href="hreflink" target="_blank">Click Me </a><br>
+           <a href="{{ hreflink }}" target="_blank"> Click Me </a><br>
+
+           <!-- ini yg benar -->
+           <a v-bind:href="hreflink" target="_blank"> Click Me </a>
+       </div>
+
+      <script type = "text/javascript">
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+               title: "DATA BINDING",
+               hreflink: "https://www.google.com"
+            }
+        });
+      </script>
+   </body>
+</html>

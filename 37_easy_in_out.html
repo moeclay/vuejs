@@ -1,0 +1,35 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <style>
+          .shiftx-enter-active, .shiftx-leave-active {
+              transition: all 0.5s ease-in-out;
+          }
+          .shiftx-enter, .shiftx-leave-to {
+              transform: translateX(-500px);
+          }
+      </style>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="databinding">
+        <button v-on:click="show  = !show">Click Me</button>
+        <transition name="shiftx">
+            <p v-show="show">
+                <img src="logo.png" />
+            </p>
+        </transition>
+       </div>
+
+      <script type = "text/javascript">
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+                show: true
+            },
+            methods: {},
+        });
+      </script>
+   </body>
+</html>

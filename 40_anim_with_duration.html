@@ -1,0 +1,49 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="databinding">
+        <button @click = "show = !show">
+            <span style = "font-size:25px;">Toggle</span>
+         </button>
+         <transition  v-on:before-enter = "beforeEnter"
+            v-on:enter = "enter"
+            v-on:leave = "leave"
+            v-bind:css = "false">
+            <p v-if = "show" style = "font-size:25px;">Animation Example with velocity</p>
+         </transition>
+       </div>
+
+      <script type = "text/javascript">
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+                show: false
+            },
+            methods: {
+                beforeEnter: function (el) {
+                  el.style.opacity = 0
+                },
+                enter: function (el, done) {
+                  Velocity(el, { opacity: 1, fontSize: '25px' }, { duration: 1000 })
+                  Velocity(el, { fontSize: '10px' }, { complete: done })
+                },
+                leave: function (el, done) {
+                  Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 1500 })
+                  Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+                  Velocity(el, {
+                     rotateZ: '45deg',
+                     translateY: '30px',
+                     translateX: '30px',
+                     opacity: 0
+                }, { complete: done })
+               }
+            },
+        });
+      </script>
+   </body>
+</html>

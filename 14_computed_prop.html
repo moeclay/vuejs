@@ -1,0 +1,36 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <style>
+      #header{
+          color: blueviolet;
+      }
+      </style>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="databinding">
+           Firstname : <input type="text" v-model="firstname" /><br>
+           Lastname  : <input type="text" v-model="lastname" /><br><br>
+           <p>My name is {{firstname}} {{lastname}}</p>
+           <p>using computed method : {{getfullname}}</p>
+       </div>
+
+      <script type = "text/javascript">
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+                firstname: "",
+                lastname: "",
+                birthyear: ""
+            },
+            computed: {
+                getfullname : function(){
+                    return this.firstname+' '+this.lastname;
+                }
+            }
+        });
+      </script>
+   </body>
+</html>

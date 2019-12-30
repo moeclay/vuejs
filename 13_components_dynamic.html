@@ -1,0 +1,35 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <style>
+      #header{
+          color: blueviolet;
+      }
+      </style>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="databinding">
+           <component v-bind:is="home"></component>
+       </div>
+
+      <script type = "text/javascript">
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+                report: 'component1',
+                home: 'component2'
+            },
+            components: {
+                'component1': {
+                    template: '<div><span>Report Table</span></div>'
+                },
+                'component2': {
+                    template: '<div><span>Dashboard App</span></div>'
+                }
+            }
+        });
+      </script>
+   </body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="databinding">
+        <p style = "font-size:25px;">Language displayed : <small>{{ languageclicked }}</small></p>
+        <button-counter
+        v-for="(item,index) in languages"
+        v-bind:item="item"
+        v-bind:index="index"
+        v-on:showlanguage="languagedisp"></button-counter>
+       </div>
+
+      <script type = "text/javascript">
+        // making view
+        Vue.component('button-counter',{
+            template: '<button style="margin: 1px;" v-on:click="displayLanguage(item)"><span style="font-size:25px;">{{item}}</span></button>',
+            data: function(){
+                return {
+                    counter : 0
+                }
+            },
+            props: ['item','index'],
+            methods: {
+                // ambil berdasarkan param template method
+                displayLanguage: function(lng) {
+                    console.log(lng);
+                    // emit : memancarkan : view dan param
+                    this.$emit('showlanguage', lng);
+                }
+            },
+        });
+
+        // register app
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+               languageclicked: "NodeJs is awesome",
+               languages: ["Java","PHP","C++","C","Javascript","C#","Python","HTML"]
+            },
+            methods: {
+                languagedisp: function(a){
+                    this.languageclicked = a;
+                }
+            }
+        });
+      </script>
+   </body>
+</html>

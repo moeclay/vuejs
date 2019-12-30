@@ -1,0 +1,25 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+      <h2>Vue.js Props</h2>
+      <div id = "app" style = "font-family: Calibri, 'Trebuchet MS', sans-serif;">
+        <!-- code here -->
+      </div>
+      <script type = "text/javascript">
+        var Comp = Vue.extend({
+            el: '#app',
+            props: ['msg'],
+            template: '<div id="header">{{ msg }}</div>'
+        })
+        
+        var vm = new Comp({
+            propsData: {
+                msg : 'penggunaan props di vue.js'
+            }
+        });
+      </script>
+   </body>
+</html>

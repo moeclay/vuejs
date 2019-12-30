@@ -1,0 +1,35 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="computed_props">
+           <p>{{getrandomno}}</p>
+           <p>{{getrandomno1()}}</p>
+           <hr>
+           <p>{{getrandomno}}</p>
+           <p>{{getrandomno1()}}</p>
+       </div>
+
+      <script type = "text/javascript">
+        var vm = new Vue({
+            el: '#computed_props',
+            data: {
+               name : "helloworld"
+            },
+            methods: {
+               getrandomno1 : function() {
+                  return Math.random();
+               }
+            },
+            computed :{
+               getrandomno : function(){
+                  return Math.random();
+               }
+            }
+        });
+      </script>
+   </body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+    <div id = "databinding" style = "text-align:center;">
+        <input type="text" v-model="name" placeholder="Put your name" /> <br>
+        <span>{{name}}</span>
+        <testcomponent></testcomponent>
+        <hr>
+        <testcomponent2>Hei Joe</testcomponent2>
+        <testcomponent2>Hei Anniee</testcomponent2>
+    </div>
+    <script type = "text/javascript">
+        Vue.component('testcomponent',{
+            template: '<h1>Hello World | {{name}}</h1>',
+            data() {
+                return {
+                    name: 'Moeamar Reza R'
+                }
+            },
+            methods:{}
+        });
+        Vue.component('testcomponent2', {
+            template: '<h2><slot></slot></h2>'
+        });
+        var vm = new Vue({
+            el: '#databinding',
+            data : {
+                name:''
+            }
+        });
+    </script>
+   </body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+      <div id = "intro" style = "font-family: Calibri, 'Trebuchet MS', sans-serif;">
+        <h1>{{ message }}</h1>
+        <hr>
+        <p>Firstname : {{ firstname }} <br>
+            Lastname : {{ lastname }} <br>
+            {{ mydetail() }}</p>
+      </div>
+      <script type = "text/javascript">
+        var _obj = {
+            message: 'My first VueJS Task',
+            firstname: "Rua",
+            lastname: "Singh",
+            address: "Mumbai"
+        }
+        var vue_det = new Vue({
+            el: '#intro',
+            // format JSON
+            // data : untuk variable
+            data: _obj,
+            // methods : untuk fungsi
+            // this to access variable data
+            methods: {
+                mydetail : function(){
+                    return "I am "+this.firstname+" "+this.lastname+" and address : "+this.address;
+                }
+            }
+         });
+
+        // keluarkan data 
+        console.log(vue_det.$data.address);
+
+        console.log("------------ new components ------------");
+        
+        // buat component baru dari object vue
+        var Component = Vue.extend({
+             data: function(){
+                 return _obj;
+             }
+         });
+
+         var myCom = new Component();
+         console.log(myCom.$data.address);
+      </script>
+   </body>
+</html>

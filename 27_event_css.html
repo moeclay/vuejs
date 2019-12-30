@@ -1,0 +1,36 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="databinding">
+        <div v-bind:style="styleobj" v-on:mouseover="changecolor" v-on:mouseout="originalcolor"></div>
+       </div>
+
+      <script type = "text/javascript">
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+               num1: 156,
+               num2: 232,
+               total: '',
+               styleobj: {
+                   width: '100px',
+                   height: '100px',
+                   backgroundColor: 'red'
+               }
+            },
+            methods: {
+                changecolor: function(){
+                    this.styleobj.backgroundColor = "green";
+                },
+                originalcolor: function(){
+                    this.styleobj.backgroundColor = "red";
+                }
+            }
+        });
+      </script>
+   </body>
+</html>

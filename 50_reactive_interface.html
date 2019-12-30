@@ -1,0 +1,28 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+    <div id = "databinding" style = "text-align:center;">
+        <p>Counter: {{counter}}</p>
+        <button @click="counter++">Click Me</button>
+    </div>
+    <script type = "text/javascript">        
+        var vm = new Vue({
+            el: '#databinding',
+            data : {
+                counter: 1
+            }
+        });
+        vm.$watch('counter', function(nval, oval){
+            alert('Counter is incrementd : '+oval+' to '+nval+'!');
+        });
+        setTimeout(
+            function(){
+                vm.counter = 20;
+            }, 2000
+        );
+    </script>
+   </body>
+</html>

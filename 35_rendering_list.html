@@ -1,0 +1,38 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="databinding">
+        <input type="text" v-on:keyup.enter="showinputvalue" v-bind:type="styleobj" placeholder="Enter Fruits Names" />
+        <h1 v-if="items.length>0">Display Fruits Names</h1>
+        <ul>
+            <li v-for="(a, index) in items">{{index}} -- {{a}}</li>
+        </ul>
+       </div>
+
+      <script type = "text/javascript">
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+                items:[],
+                styleobj: {
+                    backgroundColor: '#2196f3 !important',
+                    cursor: 'pointer',
+                    padding: '8px 16px',
+                    verticalAlign: 'middle',
+                    marginBottom: '10px'
+                }
+            },
+            methods: {
+                showinputvalue: function(event){
+                    this.items.push(event.target.value);
+                    event.target.value = ''
+                }
+            },
+        });
+      </script>
+   </body>
+</html>

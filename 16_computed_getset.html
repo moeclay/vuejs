@@ -1,0 +1,38 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="computed_props">
+           <input type="text" v-model="fullname">
+           <p>{{firstname}}</p>
+           <p>{{lastname}}</p>
+       </div>
+
+      <script type = "text/javascript">
+        var vm = new Vue({
+            el: '#computed_props',
+            data: {
+               firstname: 'Terry',
+               lastname: 'Ben'
+            },
+            methods: {
+            },
+            computed :{
+               fullname: {
+                   get : function(){
+                       return this.firstname+' '+this.lastname;
+                   },
+                   set : function(name){
+                       var fname = name.split(" ");
+                       this.firstname = fname[0];
+                       this.lastname = fname[1];
+                   }
+               }
+            }
+        });
+      </script>
+   </body>
+</html>

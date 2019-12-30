@@ -1,0 +1,35 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+      <div id = "intro" style = "font-family: Calibri, 'Trebuchet MS', sans-serif;">
+        <h1>{{ message }}</h1>
+        <hr>
+        <p>Firstname : {{ firstname }} <br>
+            Lastname : {{ lastname }} <br>
+            {{ mydetail() }}</p>
+      </div>
+      <script type = "text/javascript">
+         var vue_det = new Vue({
+            el: '#intro',
+            // format JSON
+            // data : untuk variable
+            data: {
+               message: 'My first VueJS Task',
+               firstname: "Rua",
+               lastname: "Singh",
+               address: "Mumbai"
+            },
+            // methods : untuk fungsi
+            // this to access variable data
+            methods: {
+                mydetail : function(){
+                    return "I am "+this.firstname+" "+this.lastname+" and address : "+this.address;
+                }
+            }
+         });
+      </script>
+   </body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="databinding">
+        <!-- sample : v-on:keyup.ctrl.enter (penggunaan ctrl + enter) -->
+        <input type="text" v-on:keyup.enter="showinputvalue" v-bind:style="styleobj" placeholder="Enter your name">
+        <h3>Name : {{name}}</h3>
+       </div>
+
+      <script type = "text/javascript">
+        // penggunaan prevent untuk memblokir request clicnt (redirect)
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+               name: '',
+               styleobj: {
+                  width: '30%',
+                  padding: '12px 20px',
+                  margin: '8px 0',
+                  boxSizing: 'border-box'
+               }
+            },
+            methods: {
+                showinputvalue: function(event){
+                    this.name = event.target.value;
+                }
+            }
+        });
+      </script>
+   </body>
+</html>

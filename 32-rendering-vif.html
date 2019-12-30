@@ -1,0 +1,35 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="databinding">
+        <button v-on:click="showdata" v-bind:style="styleobj">Click Me</button>
+        <span style="font-size: 15px;;"><b>{{show}}</b></span>
+        <p v-if="show">This is h1 tag</p>
+        <p>This is h2 tag</p>
+       </div>
+
+      <script type = "text/javascript">
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+                show: true,
+                styleobj: {
+                    backgroundColor: '#2196f3 !important',
+                    cursor: 'pointer',
+                    padding: '8px 16px',
+                    verticalAlign: 'middle',
+                }
+            },
+            methods: {
+                showdata: function(){
+                    this.show = !this.show;
+                }
+            },
+        });
+      </script>
+   </body>
+</html>

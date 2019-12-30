@@ -1,0 +1,46 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script type = "text/javascript" src = "https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+      <style>
+      ._active {
+          background-color: red;
+      }
+      </style>
+   </head>
+   <body>
+    <div id = "databinding" style = "text-align:center;">
+        <h1>Routing Example</h1>
+        <p>
+            <router-link to="/route1">Router Link 1</router-link>
+            <router-link to="/route2">Router Link 2</router-link>
+            <!-- dijalankan saat mouseover -->
+            <router-link to="/route3" event="mouseover" tag="span">Router Link 1</router-link>
+            <router-link to="/" append>Router Link 1</router-link>
+            <router-link to="/" exact-active-class="_active">Router Link 1</router-link>
+            <router-link to="/" exact-active-class="_active">Router Link 1</router-link>
+
+        </p>
+        <router-view></router-view>
+    </div>
+    <script type = "text/javascript">
+        const Route1 = { template: '<div style = "border-radius:20px;background-color:cyan;width:200px;height:50px;margin:10px;font-size:25px;padding:10px;">This is router 1</div>' }
+        const Route2 = { template: '<div style = "border-radius:20px;background-color:green;width:200px;height:50px;margin:10px;font-size:25px;padding:10px;">This is router 2</div>' }
+        const Route3 = { template: '<div style="color: red;">Hello Route 3</div>' }
+        
+        const routes = [
+            {path:'/route1', component: Route1},
+            {path:'/route2', component: Route2},
+            {path:'/route3', component: Route3}
+        ];
+        const router = new VueRouter({
+            routes
+        });
+        var vm = new Vue({
+           el: '#databinding',
+           router
+        });
+    </script>
+   </body>
+</html>

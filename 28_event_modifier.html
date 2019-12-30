@@ -1,0 +1,41 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="databinding">
+        <button v-on:click.once="buttonclickedonce" v-bind:style="styleobj">Click Once</button>
+        Output:{{clicknum}}
+        <br><br>
+        <button v-on:click="buttonclicked" v-bind:style="styleobj">Click Me</button>
+        Output:{{clicknum1}}
+       </div>
+
+      <script type = "text/javascript">
+        // penggunaan click 1 kali
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+               clicknum: 0,
+               clicknum1: 0,
+               styleobj: {
+                  backgroundColor: '#2196F3 !important',
+                  cursor: 'pointer',
+                  padding: '8px 16px',
+                  verticalAlign: 'middle',
+               }
+            },
+            methods: {
+                buttonclickedonce : function() {
+                  this.clicknum++;
+                },
+                buttonclicked : function() {
+                  this.clicknum1++;
+                },
+            }
+        });
+      </script>
+   </body>
+</html>

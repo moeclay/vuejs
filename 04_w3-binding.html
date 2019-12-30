@@ -1,0 +1,23 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+      <div id = "app" style = "font-family: Calibri, 'Trebuchet MS', sans-serif;">
+        <h1>{{ message }}</h1>
+      </div>
+      <p><button onclick="myFunc()">Click Me</button></p>
+      <script type = "text/javascript">
+        var myObject = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue | W3C'
+            }
+        });
+        function myFunc(){
+            myObject.message = "jhon eli | vuejs binding";
+        }
+      </script>
+   </body>
+</html>

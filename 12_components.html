@@ -1,0 +1,68 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <style>
+      #header{
+          color: blueviolet;
+      }
+      </style>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="component_test">
+           <testcomponent></testcomponent>
+       </div>
+       
+       <div id="component_test1">
+        <footcomp></footcomp>
+       </div>
+
+       <div id="component_test2">
+           <withanim></withanim>
+       </div>
+
+      <script type = "text/javascript">
+        // cara terpisah
+        Vue.component('testcomponent', {
+            template: '<div><h2>Ngluncak.id</h2></div>'
+        });
+
+        var vm = new Vue({
+            el: '#component_test'
+        });
+
+        // cara menyatu
+        var vm1 = new Vue({
+            el: '#component_test1',
+            components: {
+                'footcomp': {
+                    template: '<p>hi, for looping !</p>'
+                }
+            }
+        });
+
+        // menggunakan fungsi
+        var vm2 = new Vue({
+            el: '#component_test2',
+            components: {
+                'withanim': {
+                    template: '<div v-on:mouseover = "changename()" v-on:mouseout = "originalname();"><p>Custom Component created by <span id = "name">{{name}}</span></p></div>',
+                    data: function(){
+                        return {
+                            name: "Ria Stock"
+                        }
+                    },
+                    methods: {
+                        changename: function(){
+                            this.name = "Benyamin J";
+                        },
+                        originalname: function(){
+                            this.name = "Ria Stock";                        }
+                    },
+                }
+            }
+        });
+      </script>
+   </body>
+</html>

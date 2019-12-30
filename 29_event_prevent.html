@@ -1,0 +1,33 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="databinding">
+        <a href="http://www.google.com" v-on:click="clickme" target="_blank" v-bind:style="styleobj">Click Me</a>
+       </div>
+
+      <script type = "text/javascript">
+        // penggunaan prevent untuk memblokir request clicnt (redirect)
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+               styleobj: {
+                  backgroundColor: '#2196F3 !important',
+                  cursor: 'pointer',
+                  padding: '8px 16px',
+                  verticalAlign: 'middle',
+                  margin: '20px'
+               }
+            },
+            methods: {
+                clickme: function(){
+                    alert("Anchor tag is clicked");
+                }
+            }
+        });
+      </script>
+   </body>
+</html>

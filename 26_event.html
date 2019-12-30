@@ -1,0 +1,31 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="databinding">
+        <button v-on:click="displaynumbers">Click Me 1</button>
+        <button @click="displaynumbers">Click Me 2</button>
+        <h2>Add number {{num1}} + {{num2}} = {{total}}</h2>
+       </div>
+
+      <script type = "text/javascript">
+        var vm = new Vue({
+            el: '#databinding',
+            data: {
+               num1: 156,
+               num2: 232,
+               total: ''
+            },
+            methods: {
+                displaynumbers: function(event){
+                    console.log(event);
+                    return this.total = this.num1 + this.num2;
+                }
+            }
+        });
+      </script>
+   </body>
+</html>

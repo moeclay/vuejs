@@ -1,0 +1,32 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+    <div id = "databinding" style = "text-align:center;"></div>
+    <script type = "text/javascript">
+        var vm = new Vue({
+           el: '#databinding'
+        });
+        var myMixin = {
+            created: function(){
+                console.log("perintah sebelum mixin alert");
+                this.startmixin()
+            },
+            methods: {
+                startmixin: function(){
+                    alert("Welcome to mixin example");
+                    console.log("mixin sudah dibuat");
+                }
+            },
+        };
+        var Component = Vue.extend({
+            // like a constructor reusable
+            mixins: [myMixin]
+        });
+
+        var component = new Component();
+    </script>
+   </body>
+</html>

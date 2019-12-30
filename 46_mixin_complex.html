@@ -1,0 +1,40 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+    <div id = "databinding" style = "text-align:center;"></div>
+    <script type = "text/javascript">
+        var mixin = {
+            methods: {
+                helloworld: function(){
+                    console.log('In Helloworld');
+                },
+                samemethod2: function(){
+                    console.log('Mixin:Same Method');
+                }
+            }
+        };
+
+        var vm = new Vue({
+           el: '#databinding',
+           mixins: [mixin],
+           methods: {
+               start: function(){
+                   console.log('start method');
+               },
+               samemethod: function(){
+                   console.log('Mixin:Same Method Original');
+               }
+           },
+        });
+
+        vm.helloworld();
+        vm.start();
+        vm.samemethod();
+        vm.samemethod2();
+
+    </script>
+   </body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+      <h2>Vue.js</h2>
+      <div id = "app" style = "font-family: Calibri, 'Trebuchet MS', sans-serif;">
+        <ul>
+            <li v-for="x in todos">
+                {{ x.text }}
+            </li>
+        </ul>
+      </div>
+      <script type = "text/javascript">
+        myObject = new Vue({
+            el: '#app',
+            data: {
+                todos : [
+                    {text: 'Javascript'},
+                    {text: 'vue.js'},
+                    {text: 'Project'}
+                ]
+            }
+            // loop binding
+        });
+      </script>
+   </body>
+</html>
