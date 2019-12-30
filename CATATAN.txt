@@ -1,0 +1,35 @@
+-- Install vueJS
+npm install --global vue-cli
+
+
+-- Making project
+vue init webpack myproject
+
+cd myproject
+npm install
+npm run dev
+
+
+-------------
+Intance vueJS
+-------------
+Props : 
+Type data array dari string atau objek.
+Dibutuhkan sintaks berbasis array atau objek. 
+Mereka dikatakan atribut yang digunakan untuk (menerima data 
+dari komponen induk).
+
+untuk menentukan sebuah data yang ingin kita tampilkan di sebuah template.
+
+
+--------------------------------
+computed :  {set & get}
+--------------------------------
+Computed - Type: { [key: string]: Function | { get: Function, set: Function } }
+
+computed ; digunakan untuk mendapatkan hasil perhitungan sekali dan tetap,
+tidak seperti method yg berubah.
+
+----------------
+method : langsung eksekusi fungsi
+----------------
