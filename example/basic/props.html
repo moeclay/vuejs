@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Props</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
+    <body>
+        <div id="app">
+            <viewapp>
+                <new-tag data="ini adalah value dari data 1"></new-tag>
+                <new-tag data="ini adalah value dari data 2"></new-tag>
+                <new-tag data="ini adalah value dari data 3"></new-tag>
+            </viewapp>
+        </div>
+    </body>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+    Vue.component('viewapp', {
+        props: ['data'],
+        template: '<p>{{data}}</p>'
+    });
+    new Vue({
+        el: '#app'
+    });
+    </script>
+</html>
