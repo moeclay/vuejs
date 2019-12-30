@@ -1,0 +1,67 @@
+<html>
+   <head>
+      <title>VueJs Customer</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <style>
+         #databinding{
+            padding: 20px 15px 15px 15px;
+            margin: 0 0 25px 0;
+            width: auto;
+         }
+         span, option, input {
+            font-size:20px;
+         }
+         .Table{
+            display: table;
+            width:100%;
+         }
+         .Title{
+            display: table-caption;
+            text-align: center;
+            font-weight: bold;
+            font-size: larger;
+         }
+         .Heading{
+            display: table-row;
+            font-weight: bold;
+            text-align: center;
+         }
+         .Row{
+            display: table-row;
+         }
+         .Cell{
+            display: table-cell;
+            border: solid;
+            border-width: thin;
+            padding-left: 5px;
+            padding-right: 5px;
+            width:30%;
+         }
+      </style>
+   </head>
+   <body>
+       <div id="databinding" style="">
+        <h1>Customer Details</h1>
+        <span>First Name</span>
+        <input type = "text" placeholder = "Enter First Name" v-model = "fname"/>
+        <span>Last Name</span>
+        <input type = "text" placeholder = "Enter Last Name" v-model = "lname"/>
+        <span>Address</span>
+        <input type = "text" placeholder = "Enter Address" v-model = "addr"/>
+        <button v-on:click = "showdata" v-bind:style = "styleobj">Add</button>
+        <br/>
+        <br/>
+        <hr>
+        <customercomponent
+            v-for = "(item, index) in custdet"
+            v-bind:item = "item"
+            v-bind:index = "index"
+            v-bind:itr = "item"
+            v-bind:key = "item.fname"
+            v-on:removeelement = "custdet.splice(index, 1)">
+        </customercomponent>
+       </div>
+
+      <script type = "text/javascript" src="customer.js"></script>
+   </body>
+</html>

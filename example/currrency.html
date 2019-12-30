@@ -1,0 +1,25 @@
+<html>
+   <head>
+      <title>VueJs Currency</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+       <!-- penggunaan component vue.js -->
+       <div id="databinding" style="">
+         <h1>Currency Converter</h1>
+         <span>Enter Amount:</span><input type="number" v-model.number="amount" placeholder="Enter Amount" /> <br> <br>
+         <span>Convert From:</span>
+         <select v-model="convertfrom" style="width:300px;font-size: 15px;">
+           <option v-for="(a,index) in currencyfrom" v-bind:value="a.name">{{a.name}}</option>
+         </select>
+         <span>Convert To:</span>
+         <select v-model="convertto" style="width:300px;font-size: 15px;"> <br> <br>
+
+            <option v-for="(a,index) in currencyfrom" v-bind:value="a.name">{{a.name}}</option>
+         </select> <br> <br>
+         <span>{{amount}} {{convertfrom}} equals {{finalamount}} {{convertto}}</span>
+       </div>
+
+      <script type = "text/javascript" src="currrency.js"></script>
+   </body>
+</html>
