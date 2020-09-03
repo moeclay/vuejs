@@ -50,11 +50,11 @@ Vue.component('todo', {
 Vue.component('todo-item', {
     props: ['item'],
     template: '<li class="list-group-item" v-bind:style="isActive">{{ item.name }}'+
-        '<button type="button" class="btn btn-xs btn-success float-right" v-on:click="toggleTodo">'+
-        'v'+
+        '<button type="button" class="btn btn-sm btn-success float-right" v-on:click="toggleTodo">'+
+        'selesai'+
         '</button>'+
-        '<button type="button" class="btn btn-xs btn-danger float-right" aria-label="Close" v-on:click="deleteTodo">'+
-        '<span aria-hidden="true">x</span>'+
+        '<button type="button" class="btn btn-sm btn-danger float-right" aria-label="Close" v-on:click="deleteTodo">'+
+        '<span aria-hidden="true">hapus</span>'+
         '</button>'+
     '</li>',
     methods: {
