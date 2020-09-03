@@ -7,19 +7,13 @@ $op = $json->{'op'};
 
 if(isset($op)){
 	switch ($op) {
-		default:
-			$ret = -999;
-			$resp = array('code'=>$ret, 'msg'=>'invalid operation');
-			echo json_encode($resp);
-			break;
-
 		case "getproducts":
 			$obj = new Product();
 			$ret = $obj->getProducts();
 			$count = count($ret, 1);
 			$msg = $obj->getMsg();
 
-			if(empty($msg)){
+			if(!empty($msg)){
 				$resp = array('code'=>-1, 'msg'=>$msg);
 			}else{
 				$resp = array('code'=>1, 'msg'=>'', 'data'=>$ret);
@@ -30,7 +24,7 @@ if(isset($op)){
 			break;
 
 		case "save":
-			$id = $json->{'data.id'};
+			$id = $json->{'data'}->{'id'};
 			$name = $json->{'data'}->{'name'};
 			$price = $json->{'data'}->{'price'};
 
@@ -58,6 +52,12 @@ if(isset($op)){
 			header('Content-Type: application/json');
 			header('Access-Control-Allow-Origin: *');
 			header('Access-Control-Allow-Methods: GET, POST');
+			echo json_encode($resp);
+			break;
+
+		default:
+			$ret = -999;
+			$resp = array('code'=>$ret, 'msg'=>'invalid operation');
 			echo json_encode($resp);
 			break;
 	}

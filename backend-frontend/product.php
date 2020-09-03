@@ -21,7 +21,7 @@ class Product {
 				$this->msg = $mysqli->error;
 				return $product;
 			}
-			$query = "SELECT idproduct,name,price FROM product";
+			$query = "SELECT idproduct,name,price FROM product ORDER BY idproduct DESC";
 			if(!($stmt = $mysqli->prepare($query))){
 				$mysqli->close();
 				$this->msg = $mysqli->error;
@@ -156,4 +156,6 @@ class Product {
 
 $obj = new Product();
 // crud success
+
+// echo json_encode($obj->getProducts());
 // echo json_encode($obj->deleteProduct("2"));
