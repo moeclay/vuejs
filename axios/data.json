@@ -1,0 +1,7 @@
+{
+	"status":200,
+	"users": [
+		{"id":1,"nama":"billa","npm":12324},
+		{"id":7,"nama":"nabila","npm":66666}
+	]
+}
